@@ -1,5 +1,4 @@
-
-        // Setup Event Listener for Page Load:
+    // Setup Event Listener for Page Load:
         // This ensures your JavaScript code runs after the HTML document has fully loaded.
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -20,9 +19,7 @@
 
                 // Check if taskText is not empty.
                 if (taskText === "") {
-                    // Provide user feedback for empty input.
-                    // Note: Using alert() is generally discouraged in production for better UX.
-                    // A visual cue like border change or a message box is preferred.
+                    // If it is empty, provide user feedback through placeholder and border.
                     taskInput.placeholder = "Task cannot be empty!";
                     taskInput.style.border = '1px solid red'; // Apply inline style for error
                     setTimeout(() => {
@@ -36,35 +33,34 @@
                 // If taskText is not empty:
                 // 1. Create a new li element.
                 const listItem = document.createElement('li');
-                // The styling for 'li' elements is handled by the embedded CSS.
-
-                // 2. Set its textContent to taskText.
+                // Set its textContent to taskText.
                 const taskSpan = document.createElement('span');
                 taskSpan.textContent = taskText;
                 taskSpan.setAttribute('aria-label', `Task: ${taskText}`); // Accessibility attribute
 
-                // 3. Create a new button element for removing the task.
+                // 2. Create a new button element for removing the task.
                 const removeButton = document.createElement('button');
+                // Set its textContent to "Remove".
                 removeButton.textContent = 'Remove';
-                // 4. Give it a class name of 'remove-btn' (from your CSS).
+                // Give it a class name of 'remove-btn'.
                 removeButton.classList.add('remove-btn');
                 removeButton.setAttribute('aria-label', `Remove task: ${taskText}`); // Accessibility attribute
 
-                // 5. Assign an onclick event to the remove button that, when triggered,
+                // 3. Assign an onclick event to the remove button that, when triggered,
                 //    removes the li element from taskList.
                 removeButton.addEventListener('click', () => {
                     taskList.removeChild(listItem);
                     console.log(`Task removed: "${taskText}"`);
                 });
 
-                // 6. Append the remove button to the li element.
+                // 4. Append the task span and remove button to the li element.
                 listItem.appendChild(taskSpan);
                 listItem.appendChild(removeButton);
 
-                // 7. Then append the li to taskList.
+                // 5. Then append the li to taskList.
                 taskList.appendChild(listItem);
 
-                // 8. Clear the task input field.
+                // 6. Clear the task input field by setting taskInput.value to an empty string.
                 taskInput.value = '';
                 // Reset placeholder if it was changed
                 taskInput.placeholder = "Enter a new task";

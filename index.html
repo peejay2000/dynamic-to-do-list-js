@@ -6,14 +6,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <!-- Main container for the To-Do List application -->
     <div id="todo-app">
         <h1>My To-Do List</h1>
-        <input type="text" id="task-input" placeholder="Enter a new task">
-        <button id="add-task-btn">Add Task</button>
+        <input
+            type="text"
+            id="task-input"
+            placeholder="Enter a new task"
+            aria-label="New task input"
+        >
+        <button
+            id="add-task-btn"
+            aria-label="Add task"
+        >
+            Add Task
+        </button>
         <ul id="task-list">
             <!-- Tasks will be listed here -->
         </ul>
     </div>
-    <script src="script.js"></script>
+
 </body>
 </html>
