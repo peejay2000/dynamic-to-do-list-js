@@ -63,4 +63,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================
   // Uncomment below line only if you want to add a default task on page load
   // addTask();
+  function addTask() {
+  // Get and trim the input value
+  const taskText = taskInput.value.trim();
+
+  // Alert if the input is empty
+  if (taskText === "") {
+    alert("Please enter a task.");
+    return;
+  }
+
+  // Create a new <li> element and set its textContent to taskText
+  const li = document.createElement('li');
+  li.textContent = taskText;
+
+  // Create a new <button> element for removing the task
+  const removeButton = document.createElement('button');
+  removeButton.textContent = "Remove";
+  removeButton.className = "remove-btn"; // Set class without using classList.add
+
+  // When remove button is clicked, remove the <li> from the task list
+  removeButton.onclick = function () {
+    taskList.removeChild(li);
+  };
+
+  // Append the remove button to the list item
+  li.appendChild(removeButton);
+
+  // Append the list item to the task list
+  taskList.appendChild(li);
+
+  // Clear the input field
+  taskInput.value = "";
+}
+
 });
